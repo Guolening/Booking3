@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="court_spn_name_content">
+        <item>全部</item>
+        <item>工大球场</item>
+        <item>人大球场</item>
+        <item>东单球场</item>
+        <item>五棵松球场</item>
+        <item>首经贸球场</item>
+    </string-array>
+
+    <string-array name="court_spn_type_content">
+        <item>全部</item>
+        <item>小型</item>
+        <item>中型</item>
+        <item>大型</item>
+    </string-array>
+
+    <string-array name="court_spn_fee_content">
+        <item>全部</item>
+        <item>50r/h</item>
+        <item>100r/h</item>
+        <item>150r/h</item>
+        <item>200r/h</item>
+    </string-array>
+
+    <string-array name="court_spn_opentime_content">
+        <item>全部</item>
+        <item>上午</item>
+        <item>中午</item>
+        <item>下午</item>
+        <item>晚上</item>
+    </string-array>
+
+    <string-array name="court_spn_closetime_content">
+        <item>全部</item>
+        <item>20:00</item>
+        <item>21:00</item>
+        <item>22:00</item>
+        <item>23:00</item>
+    </string-array>
+
+    <string-array name="user_spn_ident_content">
+        <item>VIP</item>
+        <item>管理员</item>
+    </string-array>
+</resources>

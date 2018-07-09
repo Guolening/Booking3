@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main"
+    android:orientation="vertical"
+    android:weightSum="1">
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.12" />
+
+    <TextView
+        android:id="@+id/main_txtv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="篮球场定位预约APP"
+        android:textSize="30dp"
+        android:layout_weight="0.21" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.30" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="95dp"
+        android:layout_marginRight="95dp">
+
+        <Button
+            android:id="@+id/main_btn_court"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="#1C86EE"
+            android:background="@android:color/transparent"
+            android:text="COURT"
+            android:textAppearance="@style/TextAppearance.AppCompat.Button"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/main_btn_order"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="#1C86EE"
+            android:background="@android:color/transparent"
+            android:layout_weight="0.12"
+            android:text="ORDER"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/main_btn_user"
+            android:layout_width="150dp"
+            android:textColor="#1C86EE"
+            android:background="@android:color/transparent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="USER"
+            android:textSize="24sp" />
+
+    </LinearLayout>
+
+</LinearLayout>
