@@ -20,21 +20,47 @@ public class DataBaseHelper extends SQLiteOpenHelper {//继承自一个现有的
 
     private Context mContext;//全局变量，上下文
 
+    /*
+    函数名：DataBaseHelper
+    函数功能：重载函数，设置运行所在context
+    变量说明：context，数据库名，SQLiteDataBase类型数据库工厂以及int类型版本
+    返回值说明：无
+    */
     public DataBaseHelper(Context context, String dbname, SQLiteDatabase.CursorFactory factory, int version) {
         //构造函数，声明类的对象之后可以调用这个函数帮助创建数据库
         super(context, dbname, factory, version);
         mContext = context;
     }
+
+    /*
+    函数名：onCreate
+    函数功能：在数据库中执行SQL语句
+    变量说明：SQLiteDataBase类型的数据库对象
+    返回值说明：无
+    */
     @Override//如果需要建库会自动调用oncreate，还可以顺便建表
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CREATE_COURT);
     }
-    @Override//更新表 若存在则删除，然后再创建新的以升级
+
+    /*
+    函数名：onUpgrade
+    函数功能：更新表：若存在则删除，然后再创建新的以升级
+    变量说明：SQLiteDataBase类型的数据库对象，旧版本和新版本整型标识
+    返回值说明：无
+    */
+    @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("drop table if exists Court");
         onCreate(db);
     }
 
+    /*
+    函数名：insert_court
+    函数功能：向数据库中插入数据的SQL语句
+    变量说明：SQLiteDataBase类型的数据库对象
+    返回值说明：无
+    */
     //插入篮球场数据  注意前后属性数量类型保持一致
     public void insert_court(SQLiteDatabase db) {
         db.execSQL("insert into Court(name,type,fee,opentime,closetime)values(?,?,?,?,?)", new String[]{"工大球场", "小型", "50r/h", "中午", "20:00"});

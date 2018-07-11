@@ -30,6 +30,12 @@ public class CourtAdapter extends RecyclerView.Adapter<CourtAdapter.ViewHolder> 
         TextView court_opentime;
         TextView court_closetime;
 
+        /*
+        函数名：ViewHolder
+        函数功能：重载函数，设置recycleview的view类型
+        变量说明：itemview是recycleview中的一个条目视图
+        返回值说明：无
+        */
         public ViewHolder(View itemView) {
             super(itemView);
             courtView = itemView;
@@ -46,6 +52,12 @@ public class CourtAdapter extends RecyclerView.Adapter<CourtAdapter.ViewHolder> 
         mcourtList = courtList;
     }
 
+    /*
+    函数名：onCreateViewHolder
+    函数功能：设置recycleview的显示方式
+    变量说明：ViewGroup是一个视图组，viewType是一个视图类型，这两个决定recycleview的显示方式
+    返回值说明：返回一个ViewHolder类型的对象
+    */
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.court_result_item, parent, false);
@@ -67,6 +79,12 @@ public class CourtAdapter extends RecyclerView.Adapter<CourtAdapter.ViewHolder> 
         return holder;
     }
 
+    /*
+    函数名：onBindViewHolder
+    函数功能：设置recycleview中数据的显示方式
+    变量说明：ViewHolder类型的对象，以及int型的position数值确定recycleview中的哪一行
+    返回值说明：无
+    */
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         Court court = mcourtList.get(position);   //为每个子项赋值
@@ -77,6 +95,7 @@ public class CourtAdapter extends RecyclerView.Adapter<CourtAdapter.ViewHolder> 
         holder.court_closetime.setText("" + court.getClosetime());
     }
 
+    //输出数组的大小
     @Override
     public int getItemCount() {
         return mcourtList.size();

@@ -39,14 +39,12 @@ public class MapActivity extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         SDKInitializer.initialize(getApplicationContext());//显示地图画面的初始化  注意：该操作一定在setContentView方法前调用，不然会出错
-
         setContentView(R.layout.court_result_item_map);
 
         Bundle bundle=getIntent().getExtras();//获取bundle中的build值，下面会根据这个值对经纬度赋不同的值
         name = bundle.getString("name");
-        switch(name){
+        switch(name){//在地图中的搜索关键字重新更新
             case "工大球场":
                 name="北京工业大学-篮球场";
                 break;
@@ -105,7 +103,13 @@ public class MapActivity extends AppCompatActivity {
             }
         });
     }
-    private void navigateTo(double lat,double lon) {//根据location移动到我的位置的函数  以及设置地图样式，eg缩放级别等
+    /*
+    函数名：navigateTo
+    函数功能：根据location移动到我的位置的函数  以及设置地图样式，eg缩放级别等
+    变量说明：经纬度值
+    返回值说明：无
+     */
+    private void navigateTo(double lat,double lon) {
         if (isFirstLocate) {
             LatLng ll = new LatLng(lat, lon);//设置对应的经纬度数值
             ll = pianyi(lat,lon);//计算解决部分偏移
@@ -121,7 +125,14 @@ public class MapActivity extends AppCompatActivity {
         MyLocationData locationData = locationBuilder.build();
         baiduMap.setMyLocationData(locationData);//利用百度地图封装好的函数setMyLocationData将包含经纬度信息的数据locationData绑定到我们画面中的地图上
     }
-    private LatLng pianyi(double lon, double lat){//设置位置偏移问题
+
+    /*
+    函数名：pianyi
+    函数功能：设置位置偏移问题，对百度地图的定位进行纠偏操作
+    变量说明：经纬度值
+    返回值说明：经纬度坐标点
+     */
+    private LatLng pianyi(double lon, double lat){
         double x = lon; double y = lat;
         double z = Math.sqrt(x*x+y*y) + 0.00002 *Math.sin(y*Math.PI) ;
         double temp =Math.atan2(y, x)  + 0.000003 * Math.cos(x*Math.PI);
@@ -131,6 +142,12 @@ public class MapActivity extends AppCompatActivity {
         return newcenpt;
     }
 
+    /*
+    类名：MyLocationListener
+    类功能：监听器，用来监听定位
+    变量说明：回调函数，用于接收地址信息
+    返回值说明：无
+    */
     public class MyLocationListener implements BDLocationListener {//回调 监听器，类似于按钮点击事件的监听器 等 作用，这里用来监听定位
         @Override
         public void onReceiveLocation(BDLocation location) {//回调函数 用于接收地址信息
@@ -147,13 +164,13 @@ public class MapActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onPause(){
+    protected void onPause(){//周期的暂停
         super.onPause();
         mapView.onPause();
     }
 
     @Override
-    protected void onDestroy() {
+    protected void onDestroy() {//周期的销毁
         super.onDestroy();
         mLocationClient.stop();
         mapView.onDestroy();

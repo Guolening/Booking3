@@ -13,8 +13,8 @@ import com.example.booking3.UI.OrderActivity;
 import com.example.booking3.UI.UserActivity;
 
 public class MainActivity extends AppCompatActivity {
-    private DataBaseHelper courtDataBaseHelper;
-    private SQLiteDatabase db1,db2;
+    private DataBaseHelper courtDataBaseHelper;//创建DataBaseHelper的实例
+    private SQLiteDatabase db1;//SQLite数据库的实例
 
     Button btn1;
     Button btn2;
@@ -36,14 +36,17 @@ public class MainActivity extends AppCompatActivity {
 
         courtDataBaseHelper=new DataBaseHelper(this,"Court.db",null,10);//创建DataBaseHelper的实例，注意version变量，和后面courtresult相关联，要改动必须都改，不然出错
         db1=courtDataBaseHelper.getWritableDatabase();//帮助类的实例调用这个函数就可以去检查是否存在这个数据库，如果没有则调用oncreate进行创建
-
         db1.execSQL("delete from Court");//每次进入该APP就先清空数据再插入 免得插入重复
-
         courtDataBaseHelper.insert_court(db1);//插入数据
-
     }
 
-    class myclick implements View.OnClickListener {//封装函数，包含点击事件，使结构清晰
+    /*
+    类名：myclick
+    类功能：一个封装函数，包含不同的点击事件，使结构清晰
+    变量说明：被点击的按钮的id
+    返回值说明：无
+     */
+    class myclick implements View.OnClickListener {
         @Override
         public void onClick(View v) {
             Integer id = v.getId();

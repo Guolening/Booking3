@@ -156,7 +156,6 @@ public class CourtResultRecycleviewActivity extends AppCompatActivity {
             cursor = db.rawQuery("select * from Court", null);
         }
 
-
         if(cursor.moveToFirst()){//调用moveToFirst使得cursor的指针移到第一行的位置
             do{//进入循环，从而遍历每一行数据，然后把他们都放进数组中，从而在recycleview中显示出来
                 name = cursor.getString(cursor.getColumnIndex("name"));//getColumnIndex是将该列在表中的位置索引通过getString传到相应的值中
@@ -187,7 +186,7 @@ public class CourtResultRecycleviewActivity extends AppCompatActivity {
         }
         cursor.close();
 
-        //recycleview的显示
+        //recycleview的显示设置
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.court_result_recyclerview);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);

@@ -40,7 +40,7 @@ public class UserActivity extends AppCompatActivity {
         loginname=edt_loginname.getText().toString();
         loginpasswd=edt_loginpasswd.getText().toString();
         edt_loginpasswd.setTransformationMethod(PasswordTransformationMethod.getInstance());
-        spinner_loginident.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spinner_loginident.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {//下拉框选项设置，保存所选择的内容到一个变量中
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 loginident = spinner_loginident.getSelectedItem().toString();
             }

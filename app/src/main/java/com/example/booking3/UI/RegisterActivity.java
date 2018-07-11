@@ -35,6 +35,7 @@ public class RegisterActivity extends AppCompatActivity {
         spinner_registerident = (Spinner) findViewById(R.id.user_spn_registerident);
         btn_registerok = (Button) findViewById(R.id.user_btn_register);
 
+        //设置密码的加密显示
         edt_registerpasswd.setTransformationMethod(PasswordTransformationMethod.getInstance());
     }
 }
