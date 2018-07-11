@@ -3,6 +3,7 @@ package com.example.booking3.UI;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -38,6 +39,7 @@ public class UserActivity extends AppCompatActivity {
 
         loginname=edt_loginname.getText().toString();
         loginpasswd=edt_loginpasswd.getText().toString();
+        edt_loginpasswd.setTransformationMethod(PasswordTransformationMethod.getInstance());
         spinner_loginident.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 loginident = spinner_loginident.getSelectedItem().toString();

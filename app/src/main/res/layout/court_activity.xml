@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:text="篮球场查询"
+        android:text="预约查询"
         android:textSize="30dp" />
 
     <Space
@@ -47,7 +47,7 @@
     <Space
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.17" />
+        android:layout_weight="0.12" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -86,7 +86,7 @@
     <Space
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.17" />
+        android:layout_weight="0.11" />
 
     <LinearLayout
         android:layout_width="match_parent"
